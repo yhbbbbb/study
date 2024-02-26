@@ -1,0 +1,31 @@
+//fopen、fclose\
+
+#include<stdio.h>
+#include<stdlib.h>
+int main(int argc,char **argv){
+    if(argc<3)
+        return 1;
+    
+    char*file1 = argv[1];
+    char*file2 = argv[2];
+
+    FILE *fp1,*fp2;    //FILE 是 <stdio.h> 头文件中的一个结构体，它专门用来保存文件信息。
+
+    char ch;
+
+    if((fp1=fopen(file1,"r"))==NULL)   
+    /*FILE *fopen(char *filename, char *mode);filename为文件名（包括文件路径），mode为打开方式，它们都是字符串。
+        fopen() 会获取文件信息，包括文件名、文件状态、当前读写位置等，并将这些信息保存到一个 FILE 类型的结构体变量中，然后将该变量的地址返回。
+    */
+        printf("File isn't exist!\n");
+    
+    if((fp2=fopen(file2,"w"))==NULL)
+        printf("File can't be created!\n");
+
+    while((ch=fgetc(fp1))!=EOF)
+        printf("File can't be created!\n");
+    
+    fclose(fp1);
+    fclose(fp2);
+    return 0;
+}
